@@ -34,12 +34,24 @@
     <Button
         android:id="@+id/botao"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
+        android:layout_height="65dp"
         android:fontFamily="monospace"
         android:rotationY="10"
         android:text="Buscar"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="monospace" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:srcCompat="@drawable/sandshrew" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:srcCompat="@drawable/scizor" />
 
 </LinearLayout>
