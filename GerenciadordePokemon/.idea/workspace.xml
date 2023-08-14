@@ -1,61 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b06e354b-70ba-4d15-8469-7396d6581bea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/androidTest/java/com/example/gerenciadordepokemon/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/java/com/example/gerenciadordepokemon/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/java/com/example/gerenciadordepokemon/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/java/com/example/gerenciadordepokemon/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/java/com/example/gerenciadordepokemon/ui/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/app/src/test/java/com/example/gerenciadordepokemon/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GerenciadordePokemon2/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Reserva\.android\avd\Copy_of_Android_13.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -63,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2TzLgJ8G1eBR6bcFb4bmqkhUk3k" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
