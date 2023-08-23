@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Gerenciador Pokemon</string>
+    <string name="clique">Clique</string>
+    <string name="ola_mundo">Olá Mundo!!!</string>
 </resources>
