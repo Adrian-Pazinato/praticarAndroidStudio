@@ -27,10 +27,10 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_margin="2pt"
             android:layout_width="45pt"
             android:layout_height="45pt"
-            android:onClick="botaoClique"/>
+            android:layout_margin="2pt"
+            android:onClick="botaoClique" />
     </TableRow>
 
     <TableRow

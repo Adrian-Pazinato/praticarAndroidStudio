@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     fun botaoClique (view: View) {
         val botaoSelecionado = view as Button
-        val cellID = 0
+        var cellID = 0
 
-        when(botaoSelecionado.id) (
+        when (botaoSelecionado.id) {
             R.id.button1 -> cellID = 1
             R.id.button2 -> cellID = 2
             R.id.button3 -> cellID = 3
@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
             R.id.button7 -> cellID = 7
             R.id.button8 -> cellID = 8
             R.id.button9 -> cellID = 9
-        )
+        }
 
-        Toast.makeText( context this, "ID; "+cellID, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@MainActivity, "ID: $cellID", Toast.LENGTH_SHORT).show()
     }
 }
