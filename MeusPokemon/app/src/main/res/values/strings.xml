@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Meu Pokemon</string>
+    <string name="bt_inventario">Button</string>
+    <string name="bt_pokemon">Button</string>
+</resources>
