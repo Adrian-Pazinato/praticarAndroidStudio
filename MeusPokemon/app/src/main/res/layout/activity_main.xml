@@ -7,29 +7,38 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="180dp"
-        android:text="@string/bt_inventario"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/bt_inventario"
+        android:layout_width="116dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="42dp"
+        android:text="@string/txt_inventario"
+        app:layout_constraintBottom_toTopOf="@+id/bt_pokemon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:text="Pokemon" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bt_pokemon"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="649dp" />
+        android:id="@+id/bt_pokemon"
+        android:layout_width="121dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="329dp"
+        android:text="@string/txt_pokemon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_inventario"
+        tools:text="Inventario" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="111dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_width="392dp"
+        android:layout_height="221dp"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_inventario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/banner" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
