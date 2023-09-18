@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">Meu Pokemon</string>
-    <string name="txt_inventario">Inventário</string>
-    <string name="txt_pokemon">Pokemon</string>
+    <string name="app_name">Meus Pokemon</string>
 </resources>
