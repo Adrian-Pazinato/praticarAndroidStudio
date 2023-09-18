@@ -4,15 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#010238"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="77dp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_pokemon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/banner" />
+
+
+    <Button
+        android:id="@+id/bt_pokemon"
+        android:layout_width="200dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="351dp"
+        android:backgroundTint="#020540"
+        android:text="@string/txt_pokemon"
+        android:textColor="#F299A9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:text="Pokemon" />
+
+    <Button
+        android:id="@+id/bt_inventario"
+        android:layout_width="200dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="33dp"
+        android:backgroundTint="#020540"
+        android:text="@string/txt_inventario"
+        android:textColor="#F299A9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_pokemon"
+        tools:text="Inventário" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
