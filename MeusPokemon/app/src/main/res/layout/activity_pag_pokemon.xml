@@ -7,4 +7,64 @@
     android:background="#010238"
     tools:context=".PagPokemon">
 
+
+    <Button
+        android:id="@+id/add_poke1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#96D2D9"
+        android:stateListAnimator="@android:anim/anticipate_overshoot_interpolator"
+        android:text="Pokemon"
+        android:textColor="#404040"
+        app:cornerRadius="40dp"
+        app:iconTint="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.300"
+        app:strokeColor="#FF0000" />
+
+    <Button
+        android:id="@+id/add_poke2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#96D2D9"
+        android:stateListAnimator="@android:anim/anticipate_overshoot_interpolator"
+        android:text="Pokemon"
+        android:textColor="#404040"
+        app:cornerRadius="40dp"
+        app:iconTint="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.300"
+        app:strokeColor="#FF0000" />
+
+    <ImageView
+        android:id="@+id/imagePoke1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_poke1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.150"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.800"/>
+
+    <ImageView
+        android:id="@+id/imagePoke2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_poke2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.850"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.800"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
