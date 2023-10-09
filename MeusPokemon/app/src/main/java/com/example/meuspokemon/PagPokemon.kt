@@ -58,11 +58,20 @@ class PagPokemon : AppCompatActivity() {
     }
 
     private fun saveImageToExternalStorage(bitmap: Bitmap) {
+        val squareBitmap = resizeBitmapToSquare(bitmap)
         val imageFile = File(getExternalFilesDir(null), "image.jpg")
         val outputStream = FileOutputStream(imageFile)
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        squareBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
         outputStream.close()
     }
+
+    private fun resizeBitmapToSquare(bitmap: Bitmap): Bitmap {
+        val maxSize = Math.min(bitmap.width, bitmap.height)
+        val startX = (bitmap.width - maxSize) / 2
+        val startY = (bitmap.height - maxSize) / 2
+        return Bitmap.createBitmap(bitmap, startX, startY, maxSize, maxSize)
+    }
+
 
     private fun getImageFromExternalStorage(): Bitmap? {
         val imageFile = File(getExternalFilesDir(null), "image.jpg")
