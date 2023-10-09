@@ -27,8 +27,7 @@
         app:layout_constraintHorizontal_bias="0.200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.300"
-        app:strokeColor="#FF0000" />
+        app:layout_constraintVertical_bias="0.300" />
 
     <Button
         android:id="@+id/add_poke2"
@@ -42,28 +41,51 @@
         android:textColor="#404040"
         android:textStyle="italic"
         app:cornerRadius="40dp"
-        app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.800"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.300"
-        app:strokeColor="#FF0000" />
+        app:layout_constraintVertical_bias="0.300" />
 
-    <ImageView
-        android:id="@+id/imagePoke1"
+    <androidx.cardview.widget.CardView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:clickable="true"
-        android:scaleType="centerCrop"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/add_poke1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.150"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.800" />
+        app:layout_constraintVertical_bias="0.800"
+        tools:ignore="MissingConstraints">
 
+        <ImageView
+            android:id="@+id/imagePoke1"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/add_poke1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.150"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.800" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_poke1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.850"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.800"
+        tools:ignore="MissingConstraints">
     <ImageView
         android:id="@+id/imagePoke2"
         android:layout_width="150dp"
@@ -75,7 +97,10 @@
         app:layout_constraintHorizontal_bias="0.850"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.800" />
+        app:layout_constraintVertical_bias="0.800"
+        app:cornerRadius="75dp" />
+    </androidx.cardview.widget.CardView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
