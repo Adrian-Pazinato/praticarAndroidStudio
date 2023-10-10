@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#96D2D9"
-        android:editable="false"
         android:stateListAnimator="@android:anim/anticipate_overshoot_interpolator"
         android:text="Pokemon"
         android:textAlignment="center"
@@ -34,7 +33,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#96D2D9"
-        android:editable="false"
         android:stateListAnimator="@android:anim/anticipate_overshoot_interpolator"
         android:text="Pokemon"
         android:textAlignment="center"
@@ -57,8 +55,7 @@
         app:layout_constraintHorizontal_bias="0.150"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.800"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintVertical_bias="0.800">
 
         <ImageView
             android:id="@+id/imagePoke1"
@@ -84,8 +81,7 @@
         app:layout_constraintHorizontal_bias="0.850"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.800"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintVertical_bias="0.800">
     <ImageView
         android:id="@+id/imagePoke2"
         android:layout_width="150dp"

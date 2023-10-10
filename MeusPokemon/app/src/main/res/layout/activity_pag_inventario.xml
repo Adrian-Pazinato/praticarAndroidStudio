@@ -7,29 +7,5 @@
     android:background="#010238"
     tools:context=".PagInventario">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="413dp"
-        android:layout_height="545dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295"
-        app:srcCompat="@drawable/fdp"
-        tools:layout_editor_absoluteX="-1dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:rotation="-7"
-        android:text="Vem pro fight filho da puta!!!!"
-        android:textColor="#ff2222"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

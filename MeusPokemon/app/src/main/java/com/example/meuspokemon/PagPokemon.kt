@@ -2,7 +2,6 @@ package com.example.meuspokemon
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -25,50 +24,86 @@ class PagPokemon : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pag_pokemon)
 
-        val btn: Button = findViewById(R.id.add_poke1)
-        val image: ImageView = findViewById(R.id.imagePoke1)
+        val btn1: Button = findViewById(R.id.add_poke1)
+        val btn2: Button = findViewById(R.id.add_poke2)
+        val image1: ImageView = findViewById(R.id.imagePoke1)
+        val image2: ImageView = findViewById(R.id.imagePoke2)
         requestStoragePermission()
 
         val savedImage = getImageFromExternalStorage()
+
         if (savedImage != null) {
-            image.setImageBitmap(savedImage)
+            image1.setImageBitmap(savedImage)
         }
 
-        btn.setOnClickListener {
+        if (savedImage != null) {
+            image2.setImageBitmap(savedImage)
+        }
+
+        btn1.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
-            startActivityForResult(intent, 0)
+            startActivityForResult(intent, 1)
         }
+
+        btn2.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            startActivityForResult(intent, 2)
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 0) {
-            val uri = data?.data
-            val image: ImageView = findViewById(R.id.imagePoke1)
+        if (resultCode == Activity.RESULT_OK && data != null) {
+            val uri = data.data
+            val image1: ImageView = findViewById(R.id.imagePoke1)
+            val image2: ImageView = findViewById(R.id.imagePoke2)
 
             if (uri != null) {
-                // Save the selected image and display it
-                imageUri = uri
-                val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
-                image.setImageBitmap(bitmap)
-                saveImageToExternalStorage(bitmap)
+                if (requestCode == 1) {
+                    imageUri = uri
+                    val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
+                    image1.setImageBitmap(bitmap)
+                    saveImageToExternalStorage(bitmap, "image1.jpg")
+                } else if (requestCode == 2) {
+                    imageUri = uri
+                    val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
+                    image2.setImageBitmap(bitmap)
+                    saveImageToExternalStorage(bitmap, "image2.jpg")
+                }
             }
         }
     }
 
-    private fun saveImageToExternalStorage(bitmap: Bitmap) {
+
+
+    private fun saveImageToExternalStorage(bitmap: Bitmap, filename: String) {
         val squareBitmap = resizeBitmapToSquare(bitmap)
-        val imageFile = File(getExternalFilesDir(null), "image.jpg")
+        val imageFile = File(getExternalFilesDir(null), filename)
         val outputStream = FileOutputStream(imageFile)
         squareBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
         outputStream.close()
     }
 
+    private fun getImageFromExternalStorage(filename: String): Bitmap? {
+        val imageFile = File(getExternalFilesDir(null), filename)
+        return if (imageFile.exists()) {
+            BitmapFactory.decodeFile(imageFile.absolutePath)
+        } else {
+            null
+        }
+    }
+
+// ...
+
+
+
     private fun resizeBitmapToSquare(bitmap: Bitmap): Bitmap {
         val maxSize = Math.min(bitmap.width, bitmap.height)
-        val startX = (bitmap.width - maxSize) / 2
-        val startY = (bitmap.height - maxSize) / 2
+        val startX = (bitmap.width - maxSize) / 3
+        val startY = (bitmap.height - maxSize) / 3
         return Bitmap.createBitmap(bitmap, startX, startY, maxSize, maxSize)
     }
 
@@ -111,9 +146,7 @@ class PagPokemon : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permissão concedida, você pode continuar com as operações de leitura e gravação
             } else {
-                // Permissão negada, lidar com situação de permissão não concedida
             }
         }
     }
