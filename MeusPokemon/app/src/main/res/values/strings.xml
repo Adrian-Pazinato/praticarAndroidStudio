@@ -4,4 +4,5 @@
     <string name="txt_pokemon" translatable="false">Pokemon</string>
     <string name="txt_pokemon_btn" translatable="false">Pokemon</string>
     <string name="entradaNomePokemon" translatable="false">Nome do Pokemon</string>
+    <string name="todo">TODO</string>
 </resources>
