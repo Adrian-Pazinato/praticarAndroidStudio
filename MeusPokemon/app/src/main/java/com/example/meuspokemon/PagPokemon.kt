@@ -30,14 +30,14 @@ class PagPokemon : AppCompatActivity() {
         val image2: ImageView = findViewById(R.id.imagePoke2)
         requestStoragePermission()
 
-        val savedImage = getImageFromExternalStorage()
-
-        if (savedImage != null) {
-            image1.setImageBitmap(savedImage)
+        val savedImage1 = getImageFromExternalStorage("image1.jpg")
+        if (savedImage1 != null) {
+            image1.setImageBitmap(savedImage1)
         }
 
-        if (savedImage != null) {
-            image2.setImageBitmap(savedImage)
+        val savedImage2 = getImageFromExternalStorage("image2.jpg")
+        if (savedImage2 != null) {
+            image2.setImageBitmap(savedImage2)
         }
 
         btn1.setOnClickListener {
@@ -50,6 +50,16 @@ class PagPokemon : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
             startActivityForResult(intent, 2)
+        }
+
+        image1.setOnClickListener {
+            val intent = Intent(this, PagPokemon1::class.java)
+            startActivity(intent)
+        }
+
+        image2.setOnClickListener {
+            val intent = Intent(this, PagPokemon2::class.java)
+            startActivity(intent)
         }
 
     }
@@ -65,25 +75,24 @@ class PagPokemon : AppCompatActivity() {
                 if (requestCode == 1) {
                     imageUri = uri
                     val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
-                    image1.setImageBitmap(bitmap)
-                    saveImageToExternalStorage(bitmap, "image1.jpg")
+                    val resizedBitmap = resizeBitmapToSquare(bitmap)
+                    image1.setImageBitmap(resizedBitmap)
+                    saveImageToExternalStorage(resizedBitmap, "image1.jpg")
                 } else if (requestCode == 2) {
                     imageUri = uri
                     val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
-                    image2.setImageBitmap(bitmap)
-                    saveImageToExternalStorage(bitmap, "image2.jpg")
+                    val resizedBitmap = resizeBitmapToSquare(bitmap)
+                    image2.setImageBitmap(resizedBitmap)
+                    saveImageToExternalStorage(resizedBitmap, "image2.jpg")
                 }
             }
         }
     }
 
-
-
     private fun saveImageToExternalStorage(bitmap: Bitmap, filename: String) {
-        val squareBitmap = resizeBitmapToSquare(bitmap)
         val imageFile = File(getExternalFilesDir(null), filename)
         val outputStream = FileOutputStream(imageFile)
-        squareBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
         outputStream.close()
     }
 
@@ -96,25 +105,11 @@ class PagPokemon : AppCompatActivity() {
         }
     }
 
-// ...
-
-
-
     private fun resizeBitmapToSquare(bitmap: Bitmap): Bitmap {
         val maxSize = Math.min(bitmap.width, bitmap.height)
         val startX = (bitmap.width - maxSize) / 3
         val startY = (bitmap.height - maxSize) / 3
         return Bitmap.createBitmap(bitmap, startX, startY, maxSize, maxSize)
-    }
-
-
-    private fun getImageFromExternalStorage(): Bitmap? {
-        val imageFile = File(getExternalFilesDir(null), "image.jpg")
-        return if (imageFile.exists()) {
-            BitmapFactory.decodeFile(imageFile.absolutePath)
-        } else {
-            null
-        }
     }
 
     private fun requestStoragePermission() {
@@ -146,7 +141,9 @@ class PagPokemon : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permissão concedida
             } else {
+                // Permissão negada
             }
         }
     }
