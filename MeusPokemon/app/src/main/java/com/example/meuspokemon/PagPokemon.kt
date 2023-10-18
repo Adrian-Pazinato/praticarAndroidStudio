@@ -7,10 +7,10 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.io.File
@@ -61,7 +61,18 @@ class PagPokemon : AppCompatActivity() {
             val intent = Intent(this, PagPokemon2::class.java)
             startActivity(intent)
         }
+    }
 
+    private fun requestStoragePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                        PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE
+            )
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -74,13 +85,15 @@ class PagPokemon : AppCompatActivity() {
             if (uri != null) {
                 if (requestCode == 1) {
                     imageUri = uri
-                    val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
+                    val bitmap =
+                            BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
                     val resizedBitmap = resizeBitmapToSquare(bitmap)
                     image1.setImageBitmap(resizedBitmap)
                     saveImageToExternalStorage(resizedBitmap, "image1.jpg")
                 } else if (requestCode == 2) {
                     imageUri = uri
-                    val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
+                    val bitmap =
+                            BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
                     val resizedBitmap = resizeBitmapToSquare(bitmap)
                     image2.setImageBitmap(resizedBitmap)
                     saveImageToExternalStorage(resizedBitmap, "image2.jpg")
@@ -92,8 +105,12 @@ class PagPokemon : AppCompatActivity() {
     private fun saveImageToExternalStorage(bitmap: Bitmap, filename: String) {
         val imageFile = File(getExternalFilesDir(null), filename)
         val outputStream = FileOutputStream(imageFile)
+        val imagePath = imageFile.absolutePath
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
         outputStream.close()
+
+        val intent = Intent(this, PagPokemon1::class.java)
+        intent.putExtra("imagePath", imagePath)
     }
 
     private fun getImageFromExternalStorage(filename: String): Bitmap? {
@@ -106,45 +123,14 @@ class PagPokemon : AppCompatActivity() {
     }
 
     private fun resizeBitmapToSquare(bitmap: Bitmap): Bitmap {
-        val maxSize = Math.min(bitmap.width, bitmap.height)
-        val startX = (bitmap.width - maxSize) / 3
-        val startY = (bitmap.height - maxSize) / 3
-        return Bitmap.createBitmap(bitmap, startX, startY, maxSize, maxSize)
-    }
+        val width = bitmap.width
+        val height = bitmap.height
+        val size = if (width > height) height else width
 
-    private fun requestStoragePermission() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ),
-                MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE
-            )
-        }
-    }
+        val x = (width - size) / 2
+        val y = (height - size) / 2
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permissão concedida
-            } else {
-                // Permissão negada
-            }
-        }
+        val squareBitmap = Bitmap.createBitmap(bitmap, x, y, size, size)
+        return Bitmap.createScaledBitmap(squareBitmap, 300, 300, false)
     }
 }
