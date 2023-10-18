@@ -30,12 +30,12 @@ class PagPokemon : AppCompatActivity() {
         val image2: ImageView = findViewById(R.id.imagePoke2)
         requestStoragePermission()
 
-        val savedImage1 = getImageFromExternalStorage("image1.jpg")
+        val savedImage1 = getImageFromExternalStorage("imagePoke1.jpg")
         if (savedImage1 != null) {
             image1.setImageBitmap(savedImage1)
         }
 
-        val savedImage2 = getImageFromExternalStorage("image2.jpg")
+        val savedImage2 = getImageFromExternalStorage("imagePoke2.jpg")
         if (savedImage2 != null) {
             image2.setImageBitmap(savedImage2)
         }
@@ -54,8 +54,14 @@ class PagPokemon : AppCompatActivity() {
 
         image1.setOnClickListener {
             val intent = Intent(this, PagPokemon1::class.java)
+            intent.putExtra("imageUri", imageUri.toString())
             startActivity(intent)
         }
+
+       // image1.setOnClickListener {
+       //     val intent = Intent(this, PagPokemon1::class.java)
+       //     startActivity(intent)
+       // }
 
         image2.setOnClickListener {
             val intent = Intent(this, PagPokemon2::class.java)
@@ -89,14 +95,14 @@ class PagPokemon : AppCompatActivity() {
                             BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
                     val resizedBitmap = resizeBitmapToSquare(bitmap)
                     image1.setImageBitmap(resizedBitmap)
-                    saveImageToExternalStorage(resizedBitmap, "image1.jpg")
+                    saveImageToExternalStorage(resizedBitmap, "imagePoke1.jpg")
                 } else if (requestCode == 2) {
                     imageUri = uri
                     val bitmap =
                             BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri!!))
                     val resizedBitmap = resizeBitmapToSquare(bitmap)
                     image2.setImageBitmap(resizedBitmap)
-                    saveImageToExternalStorage(resizedBitmap, "image2.jpg")
+                    saveImageToExternalStorage(resizedBitmap, "imagePoke2.jpg")
                 }
             }
         }
@@ -106,11 +112,13 @@ class PagPokemon : AppCompatActivity() {
         val imageFile = File(getExternalFilesDir(null), filename)
         val outputStream = FileOutputStream(imageFile)
         val imagePath = imageFile.absolutePath
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
-        outputStream.close()
 
         val intent = Intent(this, PagPokemon1::class.java)
         intent.putExtra("imagePath", imagePath)
+        
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        outputStream.close()
+
     }
 
     private fun getImageFromExternalStorage(filename: String): Bitmap? {

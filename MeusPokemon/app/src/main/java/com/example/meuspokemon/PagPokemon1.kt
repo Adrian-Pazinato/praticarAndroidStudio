@@ -2,9 +2,11 @@ package com.example.meuspokemon
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import java.io.File
 
 class PagPokemon1 : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -12,13 +14,12 @@ class PagPokemon1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pag_pokemon_1)
 
-        val imagePath = intent.getStringExtra("imagePath")
+        val imageUriString = intent.getStringExtra("imageUri")
+        val imagePoke1: ImageView = findViewById(R.id.imagePoke1)
 
-        val viewPokemon1 = findViewById<ImageView>(R.id.ViewPokemon1)
-
-        if (imagePath != null) {
-            val bitmap = BitmapFactory.decodeFile(imagePath)
-            viewPokemon1.setImageBitmap(bitmap)
+        if (imageUriString != null) {
+            val imageUri = Uri.parse(imageUriString)
+            imagePoke1.setImageURI(imageUri)
         }
     }
-}
+    }
